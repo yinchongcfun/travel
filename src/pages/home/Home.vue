@@ -1,26 +1,29 @@
 <template>
     <div>
-        <div class="home">home</div>
-        <br>
-        <router-link to="/list">列表页</router-link>
+       <home-header> </home-header>
+        <home-swiper></home-swiper>
+        <home-icons></home-icons>
     </div>
 </template>
 
 <script>
+import HomeHeader from './compoents/Header'
+import HomeSwiper from './compoents/Swiper'
+import HomeIcons from './compoents/Icons'
+
     export default {
-        name: "Home"
+        name: "Home",
+        components:{
+            HomeHeader,
+            HomeSwiper,
+            HomeIcons
+       }
     }
 </script>
 
-<style scoped>
+<style>
 
-    div{
-        color: red;
-    }
 
-    .home{
-        font-size: 30px;
-    }
 </style>
 
 
