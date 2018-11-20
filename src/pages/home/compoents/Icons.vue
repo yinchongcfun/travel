@@ -25,6 +25,7 @@
         overflow: hidden;
         height: 0;
         padding-bottom: 50%;
+        margin: .1rem;
         /*background: pink;*/
     }
     .icon{
