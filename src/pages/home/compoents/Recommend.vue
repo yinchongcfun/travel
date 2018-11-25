@@ -3,8 +3,8 @@
        <div class="recommend-title">热门推荐</div>
        <div>
            <ul>
-               <li class="item border-bottom"  v-for="item of recommendList" :key="item.id">
-                       <img  class='item-img' :src="item.imgurl" alt="">
+               <li class="item border-bottom"  v-for="item of list" :key="item.id">
+                       <img  class='item-img' :src="item.imgUrl" alt="">
                    <div class="item-info">
                        <p class="item-title">{{item.title}}</p>
                        <p class="item-desc">{{item.desc}}</p>
@@ -22,42 +22,9 @@
 <script>
     export default {
         name: "Recommend",
-        data() {
-            return {
-                recommendList:[
-                    {
-                        id:'0001',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201810/10/5bbda3e64c464.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    },
-                    {
-                        id:'0002',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201810/17/5bc7074dc2e37.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    },
-                    {
-                        id:'0003',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201810/20/5bca003a86c2b.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    },
-                    {
-                        id:'0004',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201711/07/5a011c3fa24bb.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    },
-                    {
-                        id:'0005',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201711/07/5a0120ba3a37c.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    }
-                ]
-            }
-         }
+        props: {
+            list: Array
+        },
     }
 </script>
 

@@ -1,22 +1,20 @@
 <template>
-
     <div class="swiper">
-    <swiper :options="swiperOption" ref="mySwiper">
-        <!-- slides -->
-            <!--<img class="swiper-img" src="../../../assets/images/1.png" alt="">-->
-            <swiper-slide><img class="swiper-img" src="../../../assets/images/1.png" alt=""></swiper-slide>
-            <swiper-slide><img class="swiper-img" src="../../../assets/images/2.png" alt=""></swiper-slide>
-            <swiper-slide><img class="swiper-img" src="../../../assets/images/3.png" alt=""></swiper-slide>
-            <swiper-slide><img class="swiper-img" src="../../../assets/images/4.png" alt=""></swiper-slide>
-
+        <swiper :options="swiperOption" v-if="showSwiper">
+            <swiper-slide v-for="item of list" :key="item.id">
+                <img class="swiper-img" :src="item.imgUrl" />
+            </swiper-slide>
             <div class="swiper-pagination"  slot="pagination"></div>
-    </swiper>
+        </swiper>
     </div>
 </template>
 
 <script>
     export default {
         name: "HomeSwiper",
+        props: {
+            list: Array
+        },
         data() {
             return {
                 swiperOption: {
@@ -24,7 +22,11 @@
                 }
             }
         },
-
+        computed: {
+            showSwiper () {
+                return this.list.length
+            }
+        }
     }
 </script>
 

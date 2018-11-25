@@ -6,7 +6,7 @@
                     v-for="item of list"
                     :key="item.id">
                 <div class="item-img-wrapper">
-                    <img class="item-img" :src="item.imgurl" />
+                    <img class="item-img" :src="item.imgUrl" />
                 </div>
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -21,30 +21,9 @@
 <script>
     export default {
         name: "Weekend",
-        data() {
-            return {
-                list:[
-                    {
-                        id:'0001',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201810/10/5bbda3e64c464.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    },
-                    {
-                        id:'0002',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201810/17/5bc7074dc2e37.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    },
-                    {
-                        id:'0003',
-                        imgurl:'http://gallery.youxiake.com/Public/Data/upload/productimg/201810/20/5bca003a86c2b.jpg?imageslim' ,
-                        title:'大明山秋色】秋高气爽撒欢',
-                        desc:'10-11月，临安大明山赏秋色'
-                    },
-                ]
-            }
-         }
+        props: {
+            list: Array
+        }
     }
 </script>
 

@@ -1,10 +1,10 @@
 <template>
     <div>
         <home-header> </home-header>
-        <home-swiper></home-swiper>
-        <home-icons></home-icons>
-        <home-recommend></home-recommend>
-        <home-weekend></home-weekend>
+        <home-swiper :list="swiperList"></home-swiper>
+        <home-icons :list="iconList"></home-icons>
+        <home-recommend :list="recommendList"></home-recommend>
+        <home-weekend :list="weekendList"></home-weekend>
     </div>
 </template>
 
@@ -15,6 +15,7 @@ import HomeIcons from './compoents/Icons'
 import HomeRecommend from './compoents/Recommend'
 import HomeWeekend from './compoents/Weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 
 
     export default {
@@ -26,17 +27,44 @@ import axios from 'axios'
             HomeRecommend,
             HomeWeekend
        },
+        data(){
+            return {
+                swiperList:[],
+                iconList: [],
+                recommendList: [],
+                weekendList: []
+            }
+        },
+        // computed: {
+        //     ...mapState(['city'])
+        // },
         methods:{
             getHomeInfo(){
-               axios.get('/api/index.json')
+               axios.get('/api/index.json?city='+ this.city)
                    .then(this.getHomeInfoSucc)
             },
             getHomeInfoSucc(res){
+                res=res.data
+                if(res.ret && res.data){
+                    const data=res.data
+                    this.city=data.city
+                    this.swiperList = data.swiperList
+                    this.iconList = data.iconList
+                    this.recommendList = data.recommendList
+                    this.weekendList = data.weekendList
+                }
                 console.log(res)
             }
         },
-        mounted(){
+        mounted () {
+            this.lastCity = this.city
             this.getHomeInfo()
+        },
+        activated () {
+            if (this.lastCity !== this.city) {
+                this.lastCity = this.city
+                this.getHomeInfo()
+            }
         }
     }
 </script>
