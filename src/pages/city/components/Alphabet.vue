@@ -68,8 +68,7 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-  @import '~styles/varibles.styl'
+<style scoped>
   .list{
     display: flex;
     flex-direction: column;
@@ -81,10 +80,10 @@ export default {
     width: .4rem;
   }
 
-    .item{
-      line-height: .4rem;
-      text-align: center;
-      color: #25a4bb;
-    }
+  .item{
+    line-height: .4rem;
+    text-align: center;
+    color: #25a4bb;
+  }
 
 </style>
