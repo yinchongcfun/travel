@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/pages/home/Home'
 import List from '@/pages/list/List'
 import City from '@/pages/City/City'
+import Detail from '@/pages/Detail/Detail'
 
 // import HelloWorld from '@/components/HelloWorld'
 
@@ -24,6 +25,11 @@ export default new Router({
         path: '/list',
         name: 'List',
         component: List
-    }
+    },
+      {
+          path: '/detail/:id',
+          name: 'Detail',
+          component: Detail
+      }
   ]
 })
